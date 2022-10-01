@@ -7,6 +7,7 @@ namespace video_portal.Models
         public string? Description;
         public string Url;
         public int ChannelId;
-        public Comment Comments;
+        public Channel Channel;
+        public ICollection<Comment> Comments;
     }
 }

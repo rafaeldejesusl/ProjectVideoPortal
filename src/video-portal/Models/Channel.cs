@@ -6,7 +6,7 @@ namespace video_portal.Models
         public string ChannelName;
         public string? ChannelDescription;
         public string Url;
-        public Video Videos;
-        public User Owners;
+        public ICollection<Video> Videos;
+        public ICollection<User> Owners;
     }
 }
