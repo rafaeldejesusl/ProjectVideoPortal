@@ -2,11 +2,11 @@ namespace video_portal.Models
 {
     public class Comment
     {
-        public int CommentId;
-        public string CommentText;
-        public int VideoId;
-        public Video Video;
-        public int UserId;
-        public User User;
+        public int CommentId { get; set; }
+        public string CommentText { get; set; }
+        public int VideoId { get; set; }
+        public Video Video { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
     }
 }
