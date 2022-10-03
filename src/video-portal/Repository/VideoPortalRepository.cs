@@ -12,6 +12,7 @@ namespace video_portal.Repository
         public Video GetVideoById(int videoId)
         {
             var result = _context.Videos.Where(v => v.VideoId == videoId).First();
+            result.Comments = null;
             return result;
         }
         public IEnumerable<Video> GetVideos()
@@ -22,6 +23,7 @@ namespace video_portal.Repository
         public Channel GetChannelById(int channelId)
         {
             var result = _context.Channels.Where(ch => ch.ChannelId == channelId).First();
+            result.Videos = null;
             return result;
         }
         public IEnumerable<Channel> GetChannels()

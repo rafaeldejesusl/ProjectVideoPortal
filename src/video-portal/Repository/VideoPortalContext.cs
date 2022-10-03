@@ -11,6 +11,15 @@ public class VideoPortalContext : DbContext, IVideoPortalContext
     public virtual DbSet<User> Users { get; set; }
     public VideoPortalContext(DbContextOptions<VideoPortalContext> options) : base(options) { }
     public VideoPortalContext() { }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer(@"Server=127.0.0.1;Database=products;User=SA;Password=Password12!;");
+        }
+    }
+
     protected override void OnModelCreating(ModelBuilder mb)
     {
         mb.Entity<Channel>().HasKey(c => c.ChannelId);

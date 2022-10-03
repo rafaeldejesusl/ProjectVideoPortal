@@ -97,7 +97,10 @@ public class VideoPortalTest : IClassFixture<WebApplicationFactory<Program>>
     [MemberData(nameof(ShouldReturnVideosFromChannelData))]
     public async Task ShouldReturnAChannelWithVideos(Channel channelEntry, List<Video> expectedVideos)
     {
-        throw new NotImplementedException();
+        var response =  await client.GetAsync($"/api/channel/{channelEntry.ChannelId}/video");
+        var json = await response.Content.ReadAsStringAsync();
+        var result = JsonConvert.DeserializeObject<List<Video>>(json);
+        result.Should().BeEquivalentTo(expectedVideos);
     }
 
     public static readonly TheoryData<Channel, List<Video>> ShouldReturnVideosFromChannelData = new()
