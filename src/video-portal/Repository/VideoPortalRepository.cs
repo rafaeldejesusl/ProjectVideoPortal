@@ -11,8 +11,9 @@ namespace video_portal.Repository
         }
         public Video GetVideoById(int videoId)
         {
-            var result = _context.Videos.Where(v => v.VideoId == videoId).First();
-            result.Comments = null;
+            // var result = _context.Videos.Where(v => v.VideoId == videoId).First();
+            // result.Comments = null;
+            var result = _context.Videos.Find(videoId);
             return result;
         }
         public IEnumerable<Video> GetVideos()
