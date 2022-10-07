@@ -32,7 +32,7 @@ Para rodar a aplicação, utilize os seguintes comandos:
 
 - Na pasta src: dotnet restore
 
-- Na pasta recipes-api: dotnet run 
+- Na pasta video-portal: dotnet run 
 
 ## Feedbacks
 
